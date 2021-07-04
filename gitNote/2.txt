@@ -1,0 +1,136 @@
+1. 해당 폴더에서 버전관리를 시작할 것이다.
+: git 초기화한다.
+
+git init
+
+ex)
+> $ git init
+> Initialized empty Git repository in E:/jm/gitStudy/gitTutorial/.git/
+해당 폴더에서 버전관리를 시작할 것이라는 것을 보여줌
+----
+숨김폴더 보기 명령어
+ls -al
+
+----
+git 현 상황을 보여주는 명령어
+
+git status
+
+ex)
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        test.txt
+
+: 새로 생긴파일이다.트랙되지 않은 파일입니다. add , commit된 적도 없는 파일.
+
+--
+:git 을 스테이징에 올리기
+
+git add <파일명>
+
+ex) git add test.txt
+
+--
+git 스테이징 된 것 내리기
+
+git rm --cached <파일명>
+
+ex)git rm --cached test.txt
+
+--
+git 스테이징에 올릴 파일이 많을 경우? 모든 변경사항을 올리고 싶을 경우?
+현재 워킹 디렉토리에 있는 모든 파일을 스테이징에 올려라
+
+git add .
+
+--
+staging area에 올라간 파일을 버전으로 만드는 명령어
+
+git commit -m "메세지"
+
+ex) git commit -m "20210704 변경사항 간략설명"
+ex) 
+git commit -m "first commit"
+[master (root-commit) dadbe43] first commit
+ 2 files changed, 2 insertions(+)
+ create mode 100644 test.txt
+ create mode 100644 test2.txt
+
+--
+지금까지 만든 커밋 내역확인은 어떻게 하는가?
+
+git log
+
+ex) 
+:  dadbe431ad37ff40d56179dfa1f2e0c51ecca20e : git commit(버전)을 식별해주는 아이디값
+git log
+commit dadbe431ad37ff40d56179dfa1f2e0c51ecca20e (HEAD -> master) 
+Author: sudoku2 <test@gmail.com>
+Date:   Sun Jul 4 22:54:49 2021 +0900
+
+    first commit
+
+--
+git log 나가기
+
+: q 누르고 나감
+
+--
+git에서 변경사항이 생겼을 경우?(워킹 디렉토리에서 수정시)
+git status 로 조회하면 modified 빨간 글씨를 확인할 수 있다.
+
+ex) 
+git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+--
+변경된 사항도 스테이징으로 올리기
+1. git add <파일명> // 올리고
+2. git status //조회해보면
+
+ex) changes to be committed 와 변경된파일을 확인 할 수 있다.
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   test2.txt
+
+3. 그리고 스테이징 된 파일을  commit하기
+
+git commit -m "test2 변경메세지"
+
+ex) 
+[master 68e7656] add string to test2
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+4. git log 로 커밋 된 내역 확인
+: 차례대로 커밋된 메시지와 누가 커밋 했는지 확인할 수 있다.
+
+ex) 
+commit 68e765664aad838eeeef87201ceac579de754251 (HEAD -> master)
+Author: sudoku2 <test@gmail.com>
+Date:   Sun Jul 4 23:01:40 2021 +0900
+
+    add string to test2
+
+commit dadbe431ad37ff40d56179dfa1f2e0c51ecca20e
+Author: sudoku2 <test@gmail.com>
+Date:   Sun Jul 4 22:54:49 2021 +0900
+
+    first commit
+
+---------
+<커밋 메시지>
+1. 짧은 commit message를 빠르게 commit 하는 경우
+git commit -m "message"
+
+2.길고 자세한 commit message를 남겨야 하는 경우
+git commit
+comiit message 작성 창으로 넘어간 후 자세히 작성
+----
+2020년 10월 부터 master 용어 폐기 하고 main 브랜치로 용어가 바뀜

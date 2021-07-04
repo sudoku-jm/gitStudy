@@ -1,0 +1,29 @@
+1. 버전 관리 시스템?
+:협업하기
+:되돌리기
+:효율적으로 백업하기
+
+2. 버전이 만들어지는 3단계
+working directory(작업공간)
+: 변경된 파일
+: 버전이 될 파일을 선별해서 버전으로 만들 것.
+
+staging area
+: 버전이 될 후보들이 올라오는 공간.
+: working directory에서 선별
+
+Repository
+: 버전이 저장되어 있는 공간.
+: 저장소.
+
+
+3. 명령어
+git <명령어>
+
+working directory => staging area
+: git add
+
+staging area => Repository
+: git commit
+
+
