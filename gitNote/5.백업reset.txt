@@ -1,0 +1,82 @@
+git으로 할 수 있는 것들?
+
+1. 코드저장 (백업)
+: git add, git commit , git push(1~4 내용)
+
+2. 과거 조회, 되돌리기
+: git reset(여기!! 내용)
+
+3. 협업
+
+
+---
+그렇다면,
+working directory , staging area , repository 에 올린 내용은 어떻게 취소할 수 있을까?
+
+$ git reset 명령어로 백업.
+
+어디까지 되돌리나?
+1. 수정한 것 까지 통째로 
+--hard HEAD^ 
+
+2. add  한 것 까지
+--mixed HEAD^
+
+3. commit 한 것 까지
+ -- soft HEAD^
+
+---
+HEAD^ 이게 뭐야?
+: HEAD 가장 최근 버전에서
+: ^ 하나 되돌리자
+
+ex) 가장 최근 커밋으로부터 하나 전으로 되돌려라
+$ git reset --hard HEAD^
+
+ex) 가장 최근 커밋으로부터 두 개 전으로 되돌려라
+$ git reset --hard HEAD^^
+
+ex) 가장 최근 커밋으로부터 세 개 전으로 되돌려라
+$ git reset --hard HEAD^^^
+
+--
+그렇다면 이런 상태 일 경우는?
+하나의 파일이
+
+working directory (수정 된 상태), 
+staging area (add까지 한 상태)
+repository (commit 까지 한 상태)
+
+각각 상태에 모두 올라가 있다면? ==> 리셋을 해주자.
+------------------
+1. 쎄게 리셋 ! 하드 모드
+working directory ,staging area ,repository 몽땅 리셋이 된다. 깔끔하게 작업내용 다 버린다.
+add 하지않은 현재 수정한 소스까지 몽땅!!
+
+git reset --hard HEAD^
+
+git log 조회시 마지막 커밋 한 파일 + add 스테이징 올린 것과 + 현재 수정중인 것 전~~부 리셋.
+
+
+2. 기본 리셋! 믹스모드 (기본 리셋이라 부름.)
+git add(스테이징)와 commit(repository) 한 상태 날리기.
+단, 현재 작업중인 working directory는 안날린다.
+
+git reset --mixed HEAD^
+git reset HEAD^
+같은 명령어임.
+
+--
+3. 소프트 모드!
+git repository(commit한 것은) 날리고
+git staging area(add한 것 까지) 남긴다.
+working directory도 남아 있다.
+
+git reset --soft HEAD^
+
+
+-------------------
+그 외 명령어
+git revert 
+git diff
+git log
