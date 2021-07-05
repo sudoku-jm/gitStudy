@@ -56,4 +56,15 @@ git diff <비교대상 branch이름> <기준 branch이름>
 ##revert란 무엇인가?
 git revert도 reset과 동일하게 commit을 되돌리는 명령어.
 
-git revet <되돌아가고 싶은 commit>
+git revert <되돌아가고 싶은 commit>
+
+예) git revert <hash>
+git revert 7b51e76816a7762ec13c4c7c121ef80a187fe462
+
+--
+reset과 revert의 차이점?
+
+공통점 : commit을 과거 시점으로 되돌려준다는 점에는 결과적으로는 같음
+다른점 
+: reset은 되돌린 버전 이후의 버전들이 모두 사라지게 되지만 (과거 자체를 바꾸는 명령어)
+: revert는 되돌린 버전 이후의 버전들은 모두 유지,revert 되었다는 사실을 담은 commit만 새로 추가.
