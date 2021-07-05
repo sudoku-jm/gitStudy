@@ -1,0 +1,43 @@
+diff란 무엇이고 언제 사용?
+
+git diff는 변경내역들끼리의 비교 결과를 보여준다.
+
+예)
+예시1)10번 commit 중 1번 commit과 2번 commit을 비교하고 싶어.
+예시2)지금 push한 commit과 이전 commit을 비교하고 싶어.
+예시3)현재 stasing  area에 있는 변경 내역과 직전 commit을 비교하고 싶어
+예시4)branch1 브랜치에 있는 commit과 main 브랜치에 있는 commit을 비교하고 싶어
+
+와 같이 패치간의 차이점을 알 수 있게 해준다.
+
+--
+두 커밋간의 비교
+
+1.git log시 여러 commit 내역을 확인 가능
+commit 옆에 마구잡이로 생긴 문자열 fdfdsf4d215454dsfsd...  이런게
+각 commit을 나타내는 commit hash이다. commit을 가리키는 말이라고 생각하면 됨.
+
+2. 비교하기
+
+git diff 비교대상commit 기준commit
+git diff <이 commit에 비해> <이 commit은 무엇이 달라졌니?>
+
+ex) 이렇게 쓴다
+
+$ git diff a39c60ecdfffe993dd7018399c5bd3a2dede873b 5045c0bfd9b2ed349215730c6a673d28816280e9 
+
+--
+원격 저장소와 로컬 저장소 간의 비교
+
+git diff <비교대상 branch 이름> origin/<branch 이름>
+
+--
+이전 commit과 전전 commit의 비교하고
+
+git hash를 쓰는게 귀찮다면
+HEAD로 쓴다
+: HEAD는 현재 branch의 가장 최근 commit
+: HEAD^는 branch의 가장 최근 commit에서 하나 이전 commit
+: HEAD^^는 branch의 가장 최근  commit에서 두 개 이전 commit
+
+git diff HEAD HEAD^
