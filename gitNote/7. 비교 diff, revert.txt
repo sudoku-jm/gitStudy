@@ -1,4 +1,4 @@
-diff란 무엇이고 언제 사용?
+##diff란 무엇이고 언제 사용?
 
 git diff는 변경내역들끼리의 비교 결과를 보여준다.
 
@@ -41,3 +41,19 @@ HEAD로 쓴다
 : HEAD^^는 branch의 가장 최근  commit에서 두 개 이전 commit
 
 git diff HEAD HEAD^
+
+-- 
+이전 commit과 현재 수정된 내용 비교
+
+git diff HEAD
+--
+브랜치간의 비교
+
+git diff <비교대상 branch이름> <기준 branch이름>
+
+===========
+===========
+##revert란 무엇인가?
+git revert도 reset과 동일하게 commit을 되돌리는 명령어.
+
+git revet <되돌아가고 싶은 commit>
