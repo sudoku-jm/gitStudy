@@ -66,9 +66,34 @@ $ git branch
 * my
 ---
 
+병합하기 전에 확실히 해야할 것!
+
+A 브랜치에 B 브랜치를 합친다?  A = B냐?
+B 브랜치에 A 브랜치를 합친다?  B = A냐?
+
+비슷해보이지만 결과는 다르다.
+--
+병합하기
+
+1. 병합하고 싶은 브랜치로 checkout을 해야한다.
+main에 +  my 작업한 내용을 합치고 싶다면?
+결과가 되는 대상은 main 이므로
+
+git checkout main
 
 
+2. 합쳐준다.
 
+git merge <합치고싶은브랜치>
+
+ex) 어떤 파일이 머지 되었는지 확인 가능 예.
+Updating a39c60e..5045c0b
+Fast-forward
+ gitNote/6. git Branch          | 20 ++++++++++++++++++++
+ testArea/20210705 mybranch.txt |  1 +
+ 2 files changed, 21 insertions(+)
+
+2개의 파일이 merge 되었음을 보여준다.
 
 
 
