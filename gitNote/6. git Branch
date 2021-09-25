@@ -1,0 +1,100 @@
+1.branch의필요성
+2.git 협업 원리
+3.branch 다루는 방법
+--
+
+각자 다른 부분 작업
+예를 들어,
+A는 메뉴 부분
+B는 코멘트 부분
+각자 주고받으면서 코드 수정 확인을 하지만,
+겹치는 부분에서 각자 제출한 코드의 모든 부분을 확인해야하는 문제가 생김. ==>  협업을 뭣하러 함?
+
+기존 작업한 내용에서 나누자!
+--
+branch로 알아보는 git의 협업 원리.
+
+1. 작업 단위로 나눈다
+:branch!
+
+2. 각자 작업한다
+:A,B,C,D는 각자 작업
+
+3. 합친다
+: 충돌이 일어나는 부분만 확인하면 된다.
+--
+
+main branch : 태초의 브랜치 = 기둥
+
+--
+
+*브랜치는 한 번이라도 commit을 한 다음에 branch 작업을 해야함!
+
+
+main -> 한번이라도 커밋 -> 브랜치 나누고 -> 작업하고 -> 병합한다
+
+--
+브랜치 만들기
+
+git branch <브랜치이름>
+
+
+ex) git branch my
+
+--
+브랜치 목록보기
+
+git branch
+
+ex) 현재 main 브랜치에 있음
+$ git branch
+* main
+  my
+--
+새 브랜치로 들어가기
+
+git checkout <브랜치이름>
+
+ex) my브랜치로 변경.
+git checkout my
+Switched to branch 'my'
+
+
+ex) 현재 my 브랜치에 있음
+$ git branch
+  main
+* my
+---
+
+병합하기 전에 확실히 해야할 것!
+
+A 브랜치에 B 브랜치를 합친다?  A = B냐?
+B 브랜치에 A 브랜치를 합친다?  B = A냐?
+
+비슷해보이지만 결과는 다르다.
+--
+병합하기
+
+1. 병합하고 싶은 브랜치로 checkout을 해야한다.
+main에 +  my 작업한 내용을 합치고 싶다면?
+결과가 되는 대상은 main 이므로
+
+git checkout main
+
+
+2. 합쳐준다.
+
+git merge <합치고싶은브랜치>
+
+ex) 어떤 파일이 머지 되었는지 확인 가능 예.
+Updating a39c60e..5045c0b
+Fast-forward
+ gitNote/6. git Branch          | 20 ++++++++++++++++++++
+ testArea/20210705 mybranch.txt |  1 +
+ 2 files changed, 21 insertions(+)
+
+2개의 파일이 merge 되었음을 보여준다.
+
+
+
+

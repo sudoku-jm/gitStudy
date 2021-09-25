@@ -1,0 +1,84 @@
+[[branch 개념을 원격저장소에 접목. 실직적인 협업을 이루기]]
+
+원격저장소는 또 다른 reporitory일 뿐이다.
+협업은 reporitory끼리의 상호작용일 뿐.
+
+<Repository끼리의 상호작용 종류>
+-원격저장소 조회(추가)하기        $ git remote
+-원격저장소에 밀어넣기            $ git push
+-원격저장소 갖고 와서 합치기      $ git pull
+-원격저장소 일단 갖고만 오기      $ git fetch
+-원격저장소 복사하기              $ git clone
+================================
+
+1. 원격저장소 조회(추가)하기
+
+$ git remote (-v)
+내 로컬 reporitory와 상호작용하고 있는(혹은 할 수 있는) 원격 저장소들의 목록을 조회
+
+-v 옵션 : 단축이름과 함께 URL 같이 보기
+
+$ git remote add orgin <url>
+<url>에 있는 원격저장소를 origin이라는 이름으로 추가하기
+
+$ git remote add <단축이름> <url>
+해당 원격저장소를 단축이름으로 부른다.
+
+$ git remote (-v)
+원격저장소 조회 
+
+ex) 
+git remote
+> origin
+
+ex)
+git remote -v
+> origin https://github.com/~~.git (fetch)
+> origin https://github.com/~~.git (push)
+
+
+
+2. 원격저장소에 밀어넣기
+
+$ git push -u origin main
+내 reporitory의 main브랜치를 origin의 main브랜치로 push해라.
+
+-u 옵션: 디폴트 상호작용 설정(앞으로 말안해도 main과 origin의 상호작용이라는 뜻.)
+
+
+
+3. 원격저장소 갖고와서 합치기
+
+$ git pull (origin main)
+origin을 내 reporitory의 main브랜치로 갖고와라(merge)
+
+그렇다면 지금 내 작업하는건? 사라짐
+내 작업하고 있는건 그대로 두고, 소스만 가져오고 싶을땐 ?  fetch!
+
+
+4. 원격저장소 일단 갖고만 오기
+
+$ git fetch (origin main)
+동기화시키지는 말고 (merge하지는 말고) origin을 
+내 reporitory의 main브랜치로 일단 갖고만 와라
+
+
+5. 원격저장소 복사하기
+
+$ git clone <url>
+<url>에 있는 원격 저장소 내용을 현재 디렉토리에 복사해오기.
+(origin 자동 생성)
+
+clone을 하기위해서 remote add 할 필요 없음. 
+clone함으로써 자동적으로 원격저장소 orgin이 등록되기 때문.
+
+
+
+
+
+
+
+
+
+
+
